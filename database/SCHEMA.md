@@ -4,11 +4,11 @@
 
 ```mermaid
 erDiagram
-    Users {
+    User {
         string userId PK
+        string levelId FK
         string name
         string email
-        string levelId FK
         int points
         string inventory
         int age
@@ -17,23 +17,23 @@ erDiagram
         string gender
     }
 
-    Activities {
+    Activity {
         string activityId PK
         string name
         string description
         int points
     }
 
-    Steps {
+    Step {
         string stepId PK
         string userId FK
-        string timestamp
         string activityId FK
+        string timestamp
         double distance
         double caloriesBurned
     }
 
-    Goals {
+    Goal {
         string goalId PK
         string userId FK
         string activityId FK
@@ -43,53 +43,54 @@ erDiagram
         string status
     }
 
-    GoalsStatus {
+    GoalStatus {
         string userId PK
         string goalId PK
         int currentProgress
-        datetime lastUpdated
+        date lastUpdated
     }
 
-    Levels {
+    Level {
         string levelId PK
         string name
         int requiredPoints
     }
 
     Inventory {
+        string userId PK
         string itemId PK
         string name
         string type
     }
 
-    Animals {
-        string animalId PK
+    Animal {
+        string itemId PK
         string name
         string species
-        string imageUrl
+        string resourceId
     }
 
-    Decorations {
-        string decorationId PK
+    Decoration {
+        string itemId PK
         string name
         string type
-        string imageUrl
+        string resourceId
     }
 
-    Rewards {
+    Reward {
         string rewardId PK
         string name
         string description
         int pointsRequired
     }
 
-    Users ||--o{ Goals : "has"
-    Users ||--o{ GoalsStatus : "has"
-    Goals ||--|| Activities : "relates to"
-    Users ||--|| Levels : "has a"
-    Users |o--|{ Inventory : "contains"
-    GoalsStatus }|--|| Goals : "updates"
-    Users ||--o{ Steps : "has"
-    Inventory }|--o{ Animals : "contains"
-    Inventory }|--o{ Decorations : "contains"
+    User ||--o{ Goal : "has"
+    User ||--o{ GoalStatus : "has"
+    Goal ||--|| Activity : "relates to"
+    User ||--|| Level : "has a"
+    User |o--|{ Inventory : "contains"
+    GoalStatus }|--|| Goal : "updates"
+    User ||--o{ Step : "has"
+    Inventory }|--o{ Animal : "contains"
+    Inventory }|--o{ Decoration : "contains"
 ```
