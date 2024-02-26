@@ -40,12 +40,6 @@ erDiagram
         int target
         date startDate
         date endDate
-        string status
-    }
-
-    GoalStatus {
-        string userId PK
-        string goalId PK
         int currentProgress
         date lastUpdated
     }
@@ -85,11 +79,9 @@ erDiagram
     }
 
     User ||--o{ Goal : "has"
-    User ||--o{ GoalStatus : "has"
     Goal ||--|| Activity : "relates to"
     User ||--|| Level : "has a"
     User |o--|{ Inventory : "contains"
-    GoalStatus }|--|| Goal : "updates"
     User ||--o{ Step : "has"
     Inventory }|--o{ Animal : "contains"
     Inventory }|--o{ Decoration : "contains"
