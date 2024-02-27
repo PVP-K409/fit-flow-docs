@@ -1,7 +1,5 @@
 # Database schema
 
-## Entity-Relationship Diagram
-
 ```mermaid
 erDiagram
     User {
@@ -17,20 +15,19 @@ erDiagram
         string gender
     }
 
+    Step {
+        string stepId PK
+        string userId FK
+        int initial 
+        int current
+        date date
+    }
+
     Activity {
         string activityId PK
         string name
         string description
         int points
-    }
-
-    Step {
-        string stepId PK
-        string userId FK
-        string activityId FK
-        string timestamp
-        double distance
-        double caloriesBurned
     }
 
     Goal {
@@ -62,6 +59,7 @@ erDiagram
         string name
         string species
         string resourceId
+        int price
     }
 
     Decoration {
@@ -69,6 +67,7 @@ erDiagram
         string name
         string type
         string resourceId
+        int price
     }
 
     Reward {
