@@ -8,6 +8,7 @@ erDiagram
         string name
         string email
         int points
+        int Xp
         string inventory
         int age
         int height
@@ -21,13 +22,13 @@ erDiagram
         int initial 
         int current
         date date
+        int temp
     }
 
     Activity {
         string activityId PK
         string name
         string description
-        int points
     }
 
     Goal {
@@ -35,16 +36,18 @@ erDiagram
         string userId FK
         string activityId FK
         int target
+        int currentProgress
+        int points
+        int xp
         date startDate
         date endDate
-        int currentProgress
         date lastUpdated
     }
 
     Level {
         string levelId PK
         string name
-        int requiredPoints
+        int requiredXp
     }
 
     Inventory {
@@ -74,7 +77,7 @@ erDiagram
         string rewardId PK
         string name
         string description
-        int pointsRequired
+        int requiredXp
     }
 
     User ||--o{ Goal : "has"
