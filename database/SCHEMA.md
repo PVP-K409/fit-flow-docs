@@ -5,7 +5,7 @@ erDiagram
     User {
         string userId PK
         string levelId FK
-        int inventoryId
+        int inventoryId FK
         string name
         string email
         int points
