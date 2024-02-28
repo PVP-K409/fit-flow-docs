@@ -51,10 +51,8 @@ erDiagram
     }
 
     Inventory {
-        string userId PK
-        string itemId PK
+        string InventoryId PK
         string name
-        string type
     }
 
     Animal {
@@ -83,7 +81,7 @@ erDiagram
     User ||--o{ Goal : "has"
     Goal ||--|| Activity : "relates to"
     User ||--|| Level : "has a"
-    User |o--|{ Inventory : "contains"
+    User |o--|| Inventory : "contains"
     User ||--o{ Step : "has"
     Inventory }|--o{ Animal : "contains"
     Inventory }|--o{ Decoration : "contains"
