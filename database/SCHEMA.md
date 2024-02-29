@@ -5,11 +5,11 @@ erDiagram
     User {
         string userId PK
         string levelId FK
+        int inventoryId FK
         string name
         string email
         int points
         int Xp
-        string inventory
         int age
         int height
         int weight
@@ -51,10 +51,8 @@ erDiagram
     }
 
     Inventory {
-        string userId PK
-        string itemId PK
+        int inventoryId PK
         string name
-        string type
     }
 
     Animal {
@@ -83,7 +81,7 @@ erDiagram
     User ||--o{ Goal : "has"
     Goal ||--|| Activity : "relates to"
     User ||--|| Level : "has a"
-    User |o--|{ Inventory : "contains"
+    User |o--|| Inventory : "contains"
     User ||--o{ Step : "has"
     Inventory }|--o{ Animal : "contains"
     Inventory }|--o{ Decoration : "contains"
